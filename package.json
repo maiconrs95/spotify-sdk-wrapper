@@ -5,16 +5,25 @@
   "repository": "https://github.com/maiconrs95/spotify-sdk-wrapper.git",
   "author": "Maicon Silva <maiconrs95@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "npx eslint src/*.js",
+    "test": "npx mocha tests/**/*.spec.js --require",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test:tdd": "npx mocha tests/**/*.spec.js --require --watch",
+    "test:coverage": "nyc npm test"
+  },
   "husky": {
     "hooks": {
       "pre-push": "npm run prepush"
     }
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",
     "husky": "^4.2.5",
+    "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   }
 }
