@@ -5,6 +5,8 @@
   "repository": "https://github.com/maiconrs95/spotify-sdk-wrapper.git",
   "author": "Maicon Silva <maiconrs95@gmail.com>",
   "license": "MIT",
+  "description": "A wrapper to work with the Spotify Web API",
+  "homepage": "https://github.com/maiconrs95/spotify-sdk-wrapper",
   "scripts": {
     "lint": "npx eslint src/*.js",
     "test": "npx mocha tests/**/*.spec.js --require",
