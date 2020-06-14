@@ -1,11 +1,22 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import sinonStubPromise from 'sinon-stub-promise';
+
+/**
+ * Lib
+ */
 import {
-    search,
-    searchAlbums,
-    searchArtists,
-    searchTracks,
-    searchPlaylists,
+    search, searchAlbums, searchArtists, searchTracks, searchPlaylists,
 } from '../src/main';
+
+/**
+ * Middlewares
+ */
+global.fetch = require('node-fetch');
+
+chai.use(sinonChai);
+sinonStubPromise(sinon);
 
 describe('Spotify Wrapper', () => {
     describe('smoke tests', () => {
@@ -38,7 +49,10 @@ describe('Spotify Wrapper', () => {
 
     describe('generic search', () => {
         describe('should call fetch function', () => {
+            const fetchedStub = sinon.stub(global, 'fetch');
+
             const artist = search();
+            expect(fetchedStub).to.have.been.calledOnce;
         });
     });
 });
