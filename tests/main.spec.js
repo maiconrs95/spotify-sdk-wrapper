@@ -53,17 +53,32 @@ describe('Spotify Wrapper', () => {
             const artist = search();
 
             expect(fetchedStub).to.have.been.calledOnce;
+
             fetchedStub.restore();
         });
 
-        it('should reeive the correct url to fetch', () => {
-            const fetchedStub = sinon.stub(global, 'fetch');
+        it('should call fetch with the correct URL', () => {
+            context('passing one type', () => {
+                const fetchedStub = sinon.stub(global, 'fetch');
 
-            const artist = search('Muse', 'artist');
-            expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist');
+                const artist = search('Muse', 'artist');
+                expect(fetchedStub).to.have.been
+                    .calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist');
 
-            const albums = search('Muse', 'album');
-            expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=album');
+                const albums = search('Muse', 'album');
+                expect(fetchedStub).to.have.been
+                    .calledWith('https://api.spotify.com/v1/search?q=Muse&type=album');
+
+                fetchedStub.restore();
+            });
+
+            context('passing more than one type', () => {
+                const fetchedStub = sinon.stub(global, 'fetch');
+
+                const artistsAndAlbums = search('Muse', ['artist', 'album']);
+                expect(fetchedStub).to.have.been
+                    .calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist,album');
+            });
         });
     });
 });
