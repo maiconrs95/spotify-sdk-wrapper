@@ -48,11 +48,22 @@ describe('Spotify Wrapper', () => {
     });
 
     describe('generic search', () => {
-        describe('should call fetch function', () => {
+        it('should call fetch function', () => {
+            const fetchedStub = sinon.stub(global, 'fetch');
+            const artist = search();
+
+            expect(fetchedStub).to.have.been.calledOnce;
+            fetchedStub.restore();
+        });
+
+        it('should reeive the correct url to fetch', () => {
             const fetchedStub = sinon.stub(global, 'fetch');
 
-            const artist = search();
-            expect(fetchedStub).to.have.been.calledOnce;
+            const artist = search('Muse', 'artist');
+            expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist');
+
+            const albums = search('Muse', 'album');
+            expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=album');
         });
     });
 });
