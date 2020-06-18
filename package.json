@@ -9,7 +9,7 @@
   "homepage": "https://github.com/maiconrs95/spotify-sdk-wrapper",
   "scripts": {
     "lint": "npx eslint src/*.js",
-    "test": "npx mocha tests/**/*.spec.js --require",
+    "test": "npx mocha tests/**/*.spec.js --require babel-register",
     "prepush": "npm run lint && npm run test:coverage --require babel-register",
     "test:tdd": "npx mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test"
@@ -32,7 +32,6 @@
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "sinon": "^9.0.2",
-    "sinon-chai": "^3.5.0",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-chai": "^3.5.0"
   }
 }
