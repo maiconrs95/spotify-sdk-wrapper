@@ -1,5 +1,7 @@
 # Spotify UMD Wrapper
 
+[![licence mit](https://img.shields.io/badge/Licence-MIT-green.svg)](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/LICENSE.md)
+
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
 ## Getting Started
