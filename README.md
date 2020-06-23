@@ -1,6 +1,6 @@
 # Spotify UMD Wrapper
 
-[![licence mit](https://img.shields.io/badge/Licence-MIT-green.svg)](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/LICENSE.md)
+[![tdd](https://img.shields.io/badge/maiconsilva-spotidy--umd--wrapper-blue)](https://maiconsilva.com) [![licence mit](https://img.shields.io/badge/Licence-MIT-green.svg)](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/LICENSE.md)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
@@ -38,20 +38,28 @@ End with an example of getting some data out of the system or using it for a lit
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### Unit tests
 
-Explain what these tests test and why
+To run unit tests
 
 ```
-Give an example
+npm run test
 ```
 
 ### And coding style tests
 
-Explain what these tests test and why
+To run coding style tests
 
 ```
-Give an example
+npm run lint
+```
+
+### And to generate coverage report
+
+To generate coverage report
+
+```
+npm run test:coverage
 ```
 
 ## Deployment
@@ -66,24 +74,16 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/CONTRIBUTING.MD) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+This project does not have a versioning system.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Maicon Silva** - *Initial work* - [Site](https://maiconsilva.com)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
