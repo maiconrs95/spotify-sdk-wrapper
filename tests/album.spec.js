@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import { getAlbum, getAlbumTracks } from '../src/album';
+import { getAlbum, getAlbums, getAlbumTracks } from '../src/album';
 
 chai.use(sinonChai);
 
@@ -61,11 +61,57 @@ describe('Album', () => {
         });
     });
 
+    describe('getAlbums', () => {
+        it('should call fetch method', () => {
+            const albums = getAlbums();
+
+            expect(stubedFetch).to.have.been.calledOnce;
+        });
+
+        it('should call fetch with the correct URL', () => {
+            context('passing one id', () => {
+                const albums1 = getAlbums([1, 2, 3, 4]);
+                expect(stubedFetch).to.have.been
+                    .calledWith('https://api.spotify.com/v1/albums?ids=1,2,3,4');
+
+                const albums2 = getAlbums([4, 3, 2, 1]);
+                expect(stubedFetch).to.have.been
+                    .calledWith('https://api.spotify.com/v1/albums?ids=4,3,2,1');
+            });
+        });
+
+        it('should return the JSON Data from the Promise', () => {
+            const album = getAlbum('1234');
+
+            album
+                .then((data) => {
+                    expect(data).to.be.eql({ album: 'name' });
+                });
+        });
+    });
+
     describe('getAlbumTracks', () => {
         it('should call fetch method', () => {
             const album = getAlbumTracks();
 
             expect(stubedFetch).to.have.been.calledOnce;
+        });
+
+        it('should call fetch with the correct URL', () => {
+            context('passing one id', () => {
+                const traks = getAlbumTracks('1234');
+                expect(stubedFetch).to.have.been
+                    .calledWith('https://api.spotify.com/v1/albums/1234/tracks');
+            });
+        });
+
+        it('should return the JSON Data from the Promise', () => {
+            const tracks = getAlbumTracks('1234');
+
+            tracks
+                .then((data) => {
+                    expect(data).to.be.eql({ album: 'name' });
+                });
         });
     });
 });
