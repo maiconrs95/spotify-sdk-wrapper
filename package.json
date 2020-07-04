@@ -1,7 +1,7 @@
 {
   "name": "spotify-sdk-wrapper",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/maiconrs95/spotify-sdk-wrapper.git",
   "author": "Maicon Silva <maiconrs95@gmail.com>",
   "license": "MIT",

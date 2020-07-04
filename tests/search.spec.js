@@ -4,19 +4,19 @@ import sinonChai from 'sinon-chai';
 
 import {
     search, searchAlbums, searchArtists, searchTracks, searchPlaylists,
-} from '../src/main';
+} from '../src/search';
 
 chai.use(sinonChai);
 
 global.fetch = require('node-fetch');
 
-describe('Spotify Wrapper', () => {
+describe('Search', () => {
     let stubedFetch;
     let promise;
 
     beforeEach(() => {
         stubedFetch = sinon.stub(global, 'fetch');
-        promise = stubedFetch.resolves({ json: () => ({ }) });
+        promise = stubedFetch.resolves({ json: () => ({}) });
     });
 
     afterEach(() => {
@@ -80,7 +80,7 @@ describe('Spotify Wrapper', () => {
             const artists = search('Incubus', 'artist');
 
             artists.then((data) => {
-                expect(data).to.be.eql({ });
+                expect(data).to.be.eql({});
             });
         });
     });
