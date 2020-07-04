@@ -10,3 +10,6 @@ yarn.lock
 coverage
 .nyc_output
 examples
+
+# Build
+lib

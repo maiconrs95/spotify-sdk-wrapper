@@ -62,6 +62,14 @@ To generate coverage report
 npm run test:coverage
 ```
 
+## Build
+
+To build application
+
+```
+npm run build
+```
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
