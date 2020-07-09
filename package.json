@@ -18,7 +18,8 @@
     "test": "npx mocha tests/**/*.spec.js --require @babel/register",
     "prepush": "npm run lint && npm run test:coverage --require babel-register",
     "test:tdd": "npx mocha tests/**/*.spec.js --require @babel/register --watch",
-    "test:coverage": "nyc npm test"
+    "test:coverage": "nyc npm test",
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
@@ -31,6 +32,7 @@
     "@babel/register": "^7.10.4",
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",

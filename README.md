@@ -1,6 +1,6 @@
 # Spotify UMD Wrapper
 
-[![tdd](https://img.shields.io/badge/maiconsilva-spotidy--umd--wrapper-blue)](https://maiconsilva.com) [![licence mit](https://img.shields.io/badge/Licence-MIT-green.svg)](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/LICENSE.md) [![Build Status](https://travis-ci.com/maiconrs95/spotify-sdk-wrapper.svg?branch=master)](https://travis-ci.com/maiconrs95/spotify-sdk-wrapper)
+[![tdd](https://img.shields.io/badge/maiconsilva-spotidy--umd--wrapper-blue)](https://maiconsilva.com) [![licence mit](https://img.shields.io/badge/Licence-MIT-green.svg)](https://github.com/maiconrs95/spotify-sdk-wrapper/blob/master/LICENSE.md) [![Build Status](https://travis-ci.com/maiconrs95/spotify-sdk-wrapper.svg?branch=master)](https://travis-ci.com/maiconrs95/spotify-sdk-wrapper) [![Coverage Status](https://coveralls.io/repos/github/maiconrs95/spotify-sdk-wrapper/badge.svg?branch=master)](https://coveralls.io/github/maiconrs95/spotify-sdk-wrapper?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
