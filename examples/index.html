@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Wrapper</title>
+</head>
+
+<body>
+
+    <script src="../dist/spotify-wrapper.umd.min.js"></script>
+    <script>
+        const albums = spotifyWrapper.searchAlbums('Incubus');
+
+        console.log(albums);
+
+        albums.then(data => {
+            const markup = data.albums.items.map(album =>
+                `<img src='${item.images[0].url}' alt='${item.name}' />`
+            ).join();
+
+            console.log(markup);
+        });
+
+        alert()
+    </script>
+    </script>
+</body>
+
+</html>
