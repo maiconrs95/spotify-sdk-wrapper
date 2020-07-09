@@ -1,7 +1,7 @@
-import {
+const {
     search, searchAlbums, searchArtists, searchPlaylists, searchTracks,
-} from './search';
-import { getAlbum, getAlbums, getAlbumTracks } from './album';
+} = require('./search');
+const { getAlbum, getAlbums, getAlbumTracks } = require('./album');
 
 module.exports = {
     search,
