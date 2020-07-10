@@ -1,7 +1,7 @@
 {
   "name": "spotify-sdk-wrapper",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/maiconrs95/spotify-sdk-wrapper.git",
   "author": "Maicon Silva <maiconrs95@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,10 @@
     "test:coverage": "nyc npm test",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "husky": {
     "hooks": {
       "pre-push": "npm run prepush"
