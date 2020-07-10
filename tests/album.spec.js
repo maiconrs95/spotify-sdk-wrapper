@@ -1,16 +1,20 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import { getAlbum, getAlbums, getAlbumTracks } from '../src/album';
+import SpotifyWrapper from '../src';
 
 chai.use(sinonChai);
 
 global.fetch = require('node-fetch');
 
 describe('Album', () => {
+    let spotify;
     let stubedFetch;
 
     beforeEach(() => {
+        spotify = new SpotifyWrapper({
+            token: 'foo',
+        });
         stubedFetch = sinon
             .stub(global, 'fetch')
             .resolves({
@@ -24,35 +28,35 @@ describe('Album', () => {
 
     describe('smoke tests', () => {
         it('should exists getAlbum method', () => {
-            expect(getAlbum).to.exist;
+            expect(spotify.album.getAlbum).to.exist;
         });
 
         it('should exists getAlbumTracks method', () => {
-            expect(getAlbumTracks).to.exist;
+            expect(spotify.album.getTracks).to.exist;
         });
     });
 
     describe('getAlbum', () => {
         it('should call fetch method', () => {
-            const album = getAlbum();
+            const album = spotify.album.getAlbum();
 
             expect(stubedFetch).to.have.been.calledOnce;
         });
 
         it('should call fetch with the correct URL', () => {
             context('passing one id', () => {
-                const album1 = getAlbum('1234');
+                const album1 = spotify.album.getAlbum('1234');
                 expect(stubedFetch).to.have.been
                     .calledWith('https://api.spotify.com/v1/albums/1234');
 
-                const album2 = getAlbum('4321');
+                const album2 = spotify.album.getAlbum('4321');
                 expect(stubedFetch).to.have.been
                     .calledWith('https://api.spotify.com/v1/albums/4321');
             });
         });
 
         it('should return the JSON Data from the Promise', () => {
-            const album = getAlbum('1234');
+            const album = spotify.album.getAlbum('1234');
 
             album
                 .then((data) => {
@@ -63,25 +67,25 @@ describe('Album', () => {
 
     describe('getAlbums', () => {
         it('should call fetch method', () => {
-            const albums = getAlbums();
+            const albums = spotify.album.getAlbums();
 
             expect(stubedFetch).to.have.been.calledOnce;
         });
 
         it('should call fetch with the correct URL', () => {
             context('passing one id', () => {
-                const albums1 = getAlbums([1, 2, 3, 4]);
+                const albums1 = spotify.album.getAlbums([1, 2, 3, 4]);
                 expect(stubedFetch).to.have.been
                     .calledWith('https://api.spotify.com/v1/albums?ids=1,2,3,4');
 
-                const albums2 = getAlbums([4, 3, 2, 1]);
+                const albums2 = spotify.album.getAlbums([4, 3, 2, 1]);
                 expect(stubedFetch).to.have.been
                     .calledWith('https://api.spotify.com/v1/albums?ids=4,3,2,1');
             });
         });
 
         it('should return the JSON Data from the Promise', () => {
-            const album = getAlbum('1234');
+            const album = spotify.album.getAlbum('1234');
 
             album
                 .then((data) => {
@@ -92,21 +96,21 @@ describe('Album', () => {
 
     describe('getAlbumTracks', () => {
         it('should call fetch method', () => {
-            const album = getAlbumTracks();
+            const album = spotify.album.getTracks();
 
             expect(stubedFetch).to.have.been.calledOnce;
         });
 
         it('should call fetch with the correct URL', () => {
             context('passing one id', () => {
-                const traks = getAlbumTracks('1234');
+                const traks = spotify.album.getTracks('1234');
                 expect(stubedFetch).to.have.been
                     .calledWith('https://api.spotify.com/v1/albums/1234/tracks');
             });
         });
 
         it('should return the JSON Data from the Promise', () => {
-            const tracks = getAlbumTracks('1234');
+            const tracks = spotify.album.getTracks('1234');
 
             tracks
                 .then((data) => {
