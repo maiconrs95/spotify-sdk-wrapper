@@ -8,23 +8,24 @@
 </head>
 
 <body>
+    <div id="albums"></div>
 
     <script src="../dist/spotify-wrapper.umd.min.js"></script>
     <script>
-        const albums = spotifyWrapper.searchAlbums('Incubus');
-
-        console.log(albums);
-
-        albums.then(data => {
-            const markup = data.albums.items.map(album =>
-                `<img src='${item.images[0].url}' alt='${item.name}' />`
-            ).join();
-
-            console.log(markup);
+        const spotify = new SpotifyWrapper({
+            token: 'BQAhipGZyCkTOXBT43KbWdzYjzG_vGJJ4khgeUco4XPN62kF8bM29603gxQgfPI5bnXbCUT7MRFa0aWdK_bU2QyotBmoirFUg6vzMXjCo4a_OFrCvzNx1dfqslTiWk3iZkp4rEK3SLJexQ'
         });
+        const albums = spotify.search.albums('adele')
+        const albumsEL = document.getElementById('albums');
 
-        alert()
-    </script>
+        albums
+            .then(data => {
+                const markup = data.albums.items.map(album =>
+                    `<img src='${album.images[0].url}' alt='${album.name}' />`
+                ).join();
+
+                albumsEL.innerHTML = markup;
+            });
     </script>
 </body>
 

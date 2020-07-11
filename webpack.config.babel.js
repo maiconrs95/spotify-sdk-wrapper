@@ -1,11 +1,11 @@
 import path from 'path';
 
 export default () => ({
-    entry: './src/index.js',
+    entry: './index',
     output: {
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
-        library: 'spotifyWrapper',
+        library: 'SpotifyWrapper',
     },
     devtool: 'source-map',
     module: {

@@ -1,5 +1,6 @@
 import album from './album';
 import search from './search';
+import { toJSON } from './utils';
 
 export default class SpotifyWrapper {
     constructor(options = {}) {
@@ -18,6 +19,6 @@ export default class SpotifyWrapper {
             },
         };
 
-        return fetch(url, headers);
+        return fetch(url, headers).then(toJSON);
     }
 }
