@@ -1,8 +1,5 @@
 import album from './album';
-
-const {
-    search, searchAlbums, searchArtists, searchPlaylists, searchTracks,
-} = require('./search');
+import search from './search';
 
 export default class SpotifyWrapper {
     constructor(options = {}) {
@@ -11,6 +8,7 @@ export default class SpotifyWrapper {
         this.apiURL = apiURL;
         this.token = token;
         this.album = album.bind(this)();
+        this.search = search.bind(this)();
     }
 
     request(url) {
