@@ -52,10 +52,10 @@ const spotify = new SpotifyWrapper({
 
 ```html
 <!-- to import non-minified version -->
-<script src="spotify-sdk-wrapper.umd.js"></script>
+<script src="spotify-wrapper.umd.js"></script>
 
 <!-- to import minified version -->
-<script src="spotify-sdk-wrapper.umd.min.js"></script>
+<script src="spotify-wrapper.umd.min.js"></script>
 ```
 
 After that the library will be available to the Global as `SpotifyWrapper`. Follow an example:
