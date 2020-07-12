@@ -19,7 +19,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install spotify-sdk-wrapper --save
 ```
 
 ## How to use
@@ -28,7 +28,7 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import SpotifyWrapper from 'spotify-wrapper';
+import SpotifyWrapper from 'spotify-sdk-wrapper';
 
 const spotify = new SpotifyWrapper({
   token: 'YOUR_TOKEN_HERE'
@@ -41,7 +41,7 @@ spotify.search.artists('Incubus');
 ### CommonJS
 
 ```js
-const SpotifyWrapper = require('spotify-wrapper').default;
+const SpotifyWrapper = require('spotify-sdk-wrapper').default;
 
 const spotify = new SpotifyWrapper({
   token: 'YOUR_TOKEN_HERE'
@@ -52,10 +52,10 @@ const spotify = new SpotifyWrapper({
 
 ```html
 <!-- to import non-minified version -->
-<script src="spotify-wrapper.umd.js"></script>
+<script src="spotify-sdk-wrapper.umd.js"></script>
 
 <!-- to import minified version -->
-<script src="spotify-wrapper.umd.min.js"></script>
+<script src="spotify-sdk-wrapper.umd.min.js"></script>
 ```
 
 After that the library will be available to the Global as `SpotifyWrapper`. Follow an example:
@@ -241,7 +241,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 |:---------------------:|
 |  [Maicon Silva](https://github.com/maiconsilva/)   |
 
-See also the list of [contributors](https://github.com/willianjusten/spotify-wrapper/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/maiconrs95/spotify-sdk-wrapper/contributors) who participated in this project.
 
 ## License
 
